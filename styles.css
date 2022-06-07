@@ -1,0 +1,614 @@
+
+
+:root{
+    --background:linear-gradient(135deg, #667eea7e 0%, #764ba298 100%);
+    --color-primary:#5b68a1;
+    --color-secundary:#764ba2;
+    --boton-padding:20px 40px;
+}
+
+body{
+    font-family:'Raleway' , sans-serif;
+}
+
+.container{
+    width:90%;
+    margin:0 auto;    
+    overflow: hidden;
+    padding: 80px 0px;
+    max-width: 1200px;
+}
+
+.subtitle{
+    color:var(--color-primary);
+    font-size: 2.5rem;
+    margin-bottom: 35px;
+}
+
+.hero {
+    height:100vh;
+    background-image: var(--background),url('/img/desarrollador.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /*Como que la foto queda quieta al scrollbar-arrow-color: ; */
+    background-position: center;
+    position: relative;
+}
+
+.hero .container{
+    padding:0px;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    align-items: center;
+    font-weight:700;
+}
+
+.nav--footer{
+    font-weight:300;
+    justify-content: flex-start;
+}
+
+.nav-items{
+    color:white;
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 10px 15px;
+    font-weight:inherit; /*QUiere decir que hereda el peso de la fuente 
+                            del padre en este caso nav--footer*/
+}
+
+.nav-items--cta{
+    border:1px solid white;
+}
+
+.nav-items--footer{
+    padding:10px;    
+}
+
+.hero-container{
+    display:flex;
+    height: calc(100vh - 70px); /*Aca toma el vh y le resta los 70 del nav*/
+    align-items: center;
+    color:white;
+}
+
+.hero-text {
+    width:80%;
+    margin-bottom: 50px; /*Como l awave ya nos quito espacio con esto nos ayuda a centrar un poco mas los textos*/ 
+}
+
+.hero-title{
+    font-size: 3.2rem;
+}
+
+.hero-subtitle{
+    font-size:2rem;
+    font-weight:300;
+    margin:15px 0;
+}
+
+.hero-wave{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    height:100px;
+}
+
+.hero-cta{
+    display: inline-block; /* ESTE ES EL QUE AYUDA A DESBLOQUAR LAS PROPIEDADES DEL BOX MODEL OJOOOOOOOOOOOOOOOOOOOO*/
+    background-color: azure;
+    padding: var(--boton-padding); /*Es el que tenemos en la parte de arriba con 20px y 40px*/
+    color:var(--color-primary);
+    text-decoration: none;
+    border-radius: 40px;
+}
+
+
+/* ACA INICIAREMOS LA SECCION ABOUT QUE ES LA PARTE INICIAL DEL MAIN*/
+
+.presentation{
+    padding-top: 0;
+    text-align: center;
+}
+
+.presentation-picture{
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit:cover; /* PARA QUE LA FOTO NO PIERDA RESOLUCION */
+    object-position:top; /*Baja un poco la foto con respecto al circulo*/ 
+}
+
+.presentation-copy{
+    width:80%;
+    margin:0 auto;
+}
+
+.presentation-cta{
+    display: inline-block; /*Necesario para poder mover ya que es un elemeto en linea*/
+    margin-top: 30px;
+    background: var(--color-primary);
+    color:azure;
+    text-decoration: none;
+    padding: var(--boton-padding);
+    border-radius:40px;
+}
+
+.about{
+    min-height:400px;
+    display: grid;
+    grid-template-columns:1fr 1fr; /*Nos funciona para hacer las columnas*/
+    row-gap: 80PX; /*Crea un espacio entre la cuadricula que se formo de las grid*/
+    justify-items: center;
+    align-items:center;
+}
+
+.about-img{
+    text-align: center;
+}
+
+.about-img--left {
+    text-align: left;
+}
+
+.about-picture{
+    max-width: 80%; /*NO SOBREPASARA EL 80% DE SU CONTENEDOR QUE ES 1FR DE ESAS 2 GRID QUE HICIMOS ANTES. DE ESTA MANERA OCUPA SU LUGAR EN LA GRID*/
+    width:700px; /*Podria Poner 1000 px pero no crecera mas ya que la propiedad de arriba la limita( contenedor de 80%)*/
+}
+
+.about-paragraph{
+    margin-bottom: 20px;
+    line-height:1.5;
+    font-weight: 300;
+}
+
+/* AQUI YA INICIAMOS CON LA SECCION DE PROYECTS QUE ES EL AREA DE LAS IMAGENES*/
+
+.projects{
+    background-color: #f2f2f2
+}
+
+.projects-grid{
+    display: grid;
+    height:550px;
+    grid-template-areas: /*Aqui declaramos 2 filas con 4 columnas cada fila ese es el GRID TEMPLATE AREA*/ 
+    "img1 img1 img2 img3"
+    "img1 img1 img4 img5";
+    gap:10px;
+}
+
+.projects-item{
+    position:relative;
+    width: 100%;
+    height:100%;
+    overflow:hidden;
+
+    
+}
+
+.projects-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    cursor:pointer;
+}
+
+.projects-item:nth-of-type(1){ /* ACA USAMOS EST PSEUDOCLASE PARA QUE CUANDO ENCUENTRE EN EL GRID AREA LA IMG 1 LA POSICIONE A LO LARGO
+                                ESTO LO QUE NOS AYUDA ES A TENER CADA IMAGEN EN SU LUGAR Y ESO SOLO LO PODEMOS VER EN EL INSPECTOR DE HTML*/
+    grid-area:img1;
+}
+
+.projects-item:nth-of-type(2) {
+    /* ACA USAMOS EST PSEUDOCLASE PARA QUE CUANDO ENCUENTRE EN EL GRID AREA LA IMG 1 LA POSICIONE A LO LARGO*/
+    grid-area: img2;
+}
+
+
+.projects-item:nth-of-type(3) {
+    /* ACA USAMOS EST PSEUDOCLASE PARA QUE CUANDO ENCUENTRE EN EL GRID AREA LA IMG 1 LA POSICIONE A LO LARGO*/
+    grid-area: img3;
+}
+
+
+.projects-item:nth-of-type(4) {
+    /* ACA USAMOS EST PSEUDOCLASE PARA QUE CUANDO ENCUENTRE EN EL GRID AREA LA IMG 1 LA POSICIONE A LO LARGO */
+    grid-area: img4;
+}
+
+.projects-item:nth-of-type(5) {
+    /* ACA USAMOS EST PSEUDOCLASE PARA QUE CUANDO ENCUENTRE EN EL GRID AREA LA IMG 1 LA POSICIONE A LO LARGO*/
+    grid-area: img5;
+}
+
+.projects-hover{
+    border:1px solid blue;
+    position:absolute; /*Se posiciona inmediatamente en su padre*/
+    background: #dc143c8c;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    color: #fff;
+    text-align:center;
+    display: flex; /*Simplemente centra los elemntos*/
+    flex-direction:column; /*Alinea los elementos verticalmente*/
+    justify-content: center; /*Centra los elementos al centor de las imagenes*/
+    transform: translateX(100%);/*Mueve esta cortina sobre la imagen pero toca subir y a projects-item poner la propiedad overflow:hidden*/
+    cursor: pointer; 
+    transition: .3s; /* Con este retrasa un poco la aparicion de  la cortina*/
+
+
+}
+
+.projects-item:hover .projects-hover{
+    transform: translateX(0%);
+    /*DE ESTA MANERA CON LA CLASE HOVER HACEMOS QUE AL PASAR EL MOUSE SE VEA LA CORTINA DE PROJECTS-HOVER ,PASANDOLA DEL 100 (LINEA 242 A 0 COMO EN 247)*/
+
+}
+
+.projects-icon{
+    margin-top:10px;
+    font-size: 30px;
+}
+
+/* AQUI INICAMOS LA SECCION DE TESTIMONIOS O QUE DICEN DE NOSOTROS */
+/* Y lo primero a afectar es la clase testimoni-grid */
+
+.testimoni-grid{
+    width: 100%; /*Para que mi grilla ocupe el 100% de su contenedor*/   
+    display:grid; /*Con este se inicia el tema de las columnas*/   
+    grid-template-columns: 1fr 1fr; /*Crea 2 columnas*/
+    gap:30px;/*Crea ese espacio entre columnas de 30px*/
+
+}
+
+.testimoni-item{
+    width:95%;
+    margin: 0 auto;
+    background:var(--color-secundary);
+    box-shadow: 0 8px 10px rgb(66,66,66,0.5);
+    border-radius: 7px;
+    padding:30px 25px;
+    color:azure;
+    margin-bottom: 50px;
+}
+
+.testimoni_person {
+    border:5px solid black;
+    display:flex;
+    align-items:center;
+    margin-bottom: 20px;
+   
+}
+
+.testimoni-img{
+    width:5%;
+    min-width: 100px;
+    height:100px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-right:30px;
+}
+
+.testimoni-text{   
+    font-size:1,5rem;  
+    position: relative;
+    margin-left:120px;
+    margin-top: -90px;
+    margin-bottom: 60px;
+
+}
+
+.testimoni-text h3 {
+    padding-bottom: 15px;
+}
+
+
+.testimoni-verification{
+    color:#EAFAA0;
+    font-weight: 700;
+}
+
+.testimoni-review{
+    font-weight: 300;
+    
+}
+
+
+/* AQUI EMPEZAREMOS EL FOOTER */
+
+.footer{
+    background: var(--color-primary);
+}
+
+.footer-grid{
+    
+    display:grid;
+    grid-template-columns:3fr 2fr; 
+    gap:20px;
+    align-items: center;
+
+}
+
+.footer-title{    
+    font-weight: 400;
+    color:#fff;
+    font-size:2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.footer-icons {
+    display:flex;
+    justify-content:space-evenly;
+
+}
+
+.footer-container-icons{
+    display:inline-block;
+    width:60px;
+    height:60px;
+    color:white;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius:50%
+
+}
+
+.footer-icons{
+    color:inherit;
+    font-size:30px;
+    text-decoration: none;
+}
+ 
+
+.fab.footer-icon{  /*Mediante estas clases lo que se hizo fue centrar de alguna manera los iconos de twiter face etc dentro de el circulo*/ 
+    line-height: 60px;
+}
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* SE HARA EL RESPONSIVE DESIGN HASTA 800 PX */
+
+@media screen and (max-width: 800px){
+    /* lo Primero que modificaremos sera el root y mas especificamnete el padding del botton */
+    :root{
+        --boton-padding:18px 40px;
+    }
+
+    .nav {
+       justify-content: space-around;
+    }
+
+    .nav-items--cta {
+        border: none;
+
+    }
+
+
+    .nav-items{
+        font-weight: 400;
+        border-bottom: 1px solid azure;
+        margin-right: 0;
+    }
+
+    
+    .nav-items--footer{
+        border:none;
+    }
+
+    .hero-text{
+        width: 100%;
+        margin-bottom:80px;
+    }
+
+    .hero-title{
+        font-size:2.5rem;
+
+    }
+
+    .hero-subtitle{
+        font-size: 1.5rem;
+    }
+
+
+/*  AQUI AHORA VAMOS CON EL ABOUT */
+
+
+.presentation-copy {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.about{
+    grid-template-columns: 1fr;
+}
+
+.about.container {
+    padding-top: 20px;;
+}
+
+.about-img--left{
+    text-align: center;
+}
+
+.about-text:last-child{ /*Esta pseudoclase lo que hace es cambiar
+la posicion de los elemntos de la imagen que estaba en 4 a 3, es d
+subirla y que quede mejor , para ver esto con mas detalle es 
+necesario ver en diseño la cuadricula para entender*/
+    grid-row:3/4;
+}
+
+
+/* AQUI VAMOS CON LA PARTE DEM MIS PROYECTOS*/
+
+ 
+.projects-grid{  /*Aqui basicamebte ponemos otra columna y
+    organizamos las img de mejor manera*/
+    grid-template-areas: 
+     "img1 img1 img2 img2"
+     "img1 img1 img3 img3"
+     "img4 img4 img5 img5"
+     
+     ;
+}
+
+
+/* AQUI VAMOS CON LA PARTE DE TESTIMONI */
+
+.testimoni-grid{
+    grid-template-columns: 1fr;
+    gap:25px;
+
+}
+
+/* AQUI INICIAREMOS EL FOOTER */
+
+.container.footer-grid{
+    height: 300px;
+    padding:30px;
+    
+    
+}
+
+.footer-grid{
+    grid-template-columns:1fr;
+
+}
+
+.footer-contact{ /*Aqui pasa lo mismo para pasar el contacto 
+    a la parte de arriba vamos a poner lo siguiente:*/
+    grid-row:1/2;
+}
+
+}
+
+/* ////////////////AQUI INICIA EL OTRO BREAK POINT HASTA 500PX */
+
+@media screen and (max-width:500px) {
+
+     :root {
+         --boton-padding: 18px 35px;
+     }
+
+     .subtitle{
+         font-size: 2rem;
+         margin-bottom: 20px;
+     }
+
+    .nav{
+        flex-wrap: wrap;
+        justify-content:space-between;
+        margin-top:10px;    
+       
+    }
+
+    .nav-items{
+        padding: 0px 5px;
+        border:0
+    }
+
+    .hero-text{
+        text-align: center;
+        margin-bottom: 100px ;
+    }
+
+    .hero.title{
+        font-size: 2rem;
+
+    }
+
+
+    /* AQUI INICIARE LA MODIF DEL ABOUT */
+
+   .subtitle{
+       padding-top: 20px ;
+   }
+
+   .about{
+       row-gap: 60px;
+   }
+
+   .about.container{
+       padding-top:10px;
+   }
+
+
+   /* AHORA VAMOS A MODIFICAR EL ABOUT ME */
+
+   .projects-grid {
+       /*Aqui basicamebte ponemos otra columna y
+    organizamos las img de mejor manera y con el
+    hight auto quedan la imagenes del tamaño mas original*/
+       grid-template-areas:
+           "img1"
+           "img2"
+           "img3"
+           "img4"
+           "img5";
+
+        height:auto;
+        grid-template-rows: repeat(5,250px);
+        /* Esto de arriba es en caso de que una imagen sea mas
+        grande que las demas, asi limitamos su tamaño al del 
+        resto de las imagenes */
+        grid-auto-rows: 250px;/*Esta se da en caso de que 
+        se pongan mas imagenes el ajustara */
+        gap:10px;       
+   }
+
+
+   /* FINALMENTE PONEMOS EL TESTIMONI */
+
+.testimoni-item{
+    padding: 10px 15px;
+   
+}
+
+.testimoni-person{
+    display:flex;
+    flex-direction: 
+    
+    column;
+}
+
+
+.testimoni-img{
+    margin:0;
+    margin-top: 25px;
+}
+
+.nav--footer{    
+  
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+    
+
+
